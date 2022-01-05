@@ -1,9 +1,10 @@
 
 # Getting Started
 def validate_Format(reading): # Function Validating the format of the speed readings or if it is empty
-    assert reading != ""
+    assert reading != ""  # it raises assertion error if reading is empty
+    
     if (reading.capitalize()[0] not in ["E", "U"]) or any(char.isalpha() for char in reading[1:len(reading)+1]):
-        raise ValueError
+        raise ValueError # it raises value error if above condition is not true
         
 def conversion(reading): # Function for checking the type of the readings(E for European and U for British) and converting and returning the tuple
     if reading[0].upper() == "E":
