@@ -69,18 +69,19 @@ for index,col in result.iterrows(): # Updating the stats one by one
             i.update(col['Away_Goal'], col['Home_Goal'])
             break
     
-result = []
+result = [] # List for storing the teams result
 for i in team_list: 
     result.append(i.getStat())
 
 # Sorting the result by the pts, g.d. and score
 result.sort(key = lambda row : (row[8], row[7], row[5]), reverse=True)
 
+# Checking if command line argument is given or not, if given printing it
 if len(sys.argv) != 1:
     print(sys.argv[1])
-    print(len(sys.argv[1])*"-")
-    print(len(sys.argv[1])*"-")
+    print(len(sys.argv[1])*"=")
 
+# Printing out league table using f-string formatting
 print(f"{'Name':<9} {'P':<2} {'W':<2} {'D':<2} {'L':<2} {'S':<3} {'C':<3} {'G.D.':<4} {'Pts.':<4}")
 
 for i in result:
